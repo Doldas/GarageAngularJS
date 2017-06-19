@@ -63,10 +63,12 @@ namespace GarageAngularJS.Repository
         {
             return db.Vehicles.ToList();
         }
+
         public Models.Vehicle GetVehicle(string regNr)
         {
             return db.Vehicles.Where(v => v.RegNumber == regNr).FirstOrDefault();
         }
+
         public Models.Vehicle GetVehicle(int id)
         {
             return db.Vehicles.Where(v => v.ID == id).FirstOrDefault();

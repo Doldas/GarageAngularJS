@@ -17,9 +17,7 @@ namespace GarageAngularJS.Controllers
 
         public IEnumerable<Vehicle> Get()
         {
-            
             return garage.GetAll();
-
         }
 
         // GET api/values/5
