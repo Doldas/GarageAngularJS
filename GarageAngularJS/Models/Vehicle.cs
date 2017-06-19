@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,6 +22,7 @@ namespace GarageAngularJS.Models
         public string RegNumber { set; get; }
         
         [Required]
+        [JsonConverter(typeof(StringEnumConverter))]
         public VehicleType Type { set; get; }
         
         [Required]

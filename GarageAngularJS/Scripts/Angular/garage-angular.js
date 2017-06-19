@@ -16,5 +16,7 @@
             $scope.myOrderBy = vehicle;
         };
 
+
+
     }]);
 }());
