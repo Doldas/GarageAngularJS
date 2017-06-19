@@ -1,7 +1,7 @@
 ﻿(function () {
     var app = angular.module("Garage", []);
     app.controller("MainController", ["$scope", "$http", function ($scope, $http) {
-        
+
         $scope.getData = getData;
 
         function getData() {
@@ -11,5 +11,10 @@
                     $scope.data = response.data;
                 });
         };
+
+        $scope.orderByMe = function (vehicle) {
+            $scope.myOrderBy = vehicle;
+        };
+
     }]);
 }());

@@ -1,5 +1,4 @@
-﻿ 
-@model IEnumerable<GarageAngularJS.Models.Vehicle>
+﻿@model IEnumerable<GarageAngularJS.Models.Vehicle>
 
 @{
     ViewBag.Title = "Search";
@@ -9,14 +8,14 @@
 @*<p>search</p>*@
 
 <div class="Index_Menu" ng-controller="MainController" ng-init="getData()">
-        @*<p ng-repeat="vehicle in data">{{vehicle}}</p>*@
+    @*<p ng-repeat="vehicle in data">{{vehicle}}</p>*@
     <div class="left">
         <form class="glyphicon glyphicon-search" method="get">
-            <input type="text" name="Search" placeholder="Free Search" style="width:120px; height:25px;font-family: Helvetica, Arial, sans-serif"  />
+            <input type="text" name="Search" placeholder="Free Search" style="width:120px; height:25px;font-family: Helvetica, Arial, sans-serif" />
             <input id="vehicleType_Long" class="btn btn-primary" type="submit" value="Search" />
         </form>
     </div>
-    <div class="center" >
+    <div class="center">
         <form method="post">
             <select name="Filter">
                 <option value="" selected>Search type</option>
@@ -33,40 +32,54 @@
     </div>
     <p></p>
 </div>
+
 <table class="table" ng-controller="MainController" ng-init="getData()">
     <tr>
-        <th>
-            <form method="post">
-                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.RegNumber)" id="submit" />&#9660;
-            </form>
-        </th>
-        <th>
-            <form method="post">
-                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Owner)" id="submit" />&#9660;
-            </form>
-        </th>
-        <th>
-            <form method="post">
-                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Type)" id="submit" />&#9660;
-            </form>
-        </th>
-        <th>
-            <form method="post">
-                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.ParkingPlace)" id="submit" />&#9660;
-            </form>
-        </th>
+        @*<th>
+        <form method="post">
+            <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.RegNumber)" id="submit" />&#9660;
+        </form>
+    </th>
+    <th>
+        <form method="post">
+            <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Owner)" id="submit" />&#9660;
+        </form>
+    </th>
+    <th>
+        <form method="post">
+            <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Type)" id="submit" />&#9660;
+        </form>
+    </th>
+    <th ng-click="orderByMe('regNumber')">RegNumber
+        <form method="post">
+            <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.ParkingPlace)" id="submit" />&#9660;
+        </form>
+    </th>*@
 
-
+        <th ng-click="orderByMe('regNumber')">RegNumber</th>
+        <th ng-click="orderByMe('Owner')">Owner</th>
+        <th ng-click="orderByMe('Type')">Type</th>
+        <th ng-click="orderByMe('ParkingPlace')">ParkingPlace</th>
 
         <th></th>
     </tr>
 
-    <tr ng-repeat="vehicle in data">
+    <tr ng-repeat="vehicle in data | orderBy:myOrderBy">
         <td>{{vehicle.RegNumber}}</td>
         <td>{{vehicle.Owner}}</td>
         <td>{{vehicle.Type}}</td>
         <td>{{vehicle.ParkingPlace}}</td>
     </tr>
+
+    @*@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "ActionLink" }) |
+                @Html.ActionLink("CheckOut", "Delete", new { id = item.ID }, new { @class = "ActionLink" })
+            </td>
+        </tr>
+        }*@
 
     @*@foreach (var item in Model) {
             <tr>
