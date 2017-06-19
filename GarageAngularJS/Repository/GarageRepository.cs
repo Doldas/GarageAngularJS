@@ -220,30 +220,6 @@ namespace GarageAngularJS.Repository
             return db.Vehicles.Where(vehicle => vehicle.ParkingPlace == pSlot).ToList();
         }
 
-        //public IEnumerable<Vehicle> SortVehicle(string sortOrder)
-        //{
-        //    var SortVehicle = from v in db.Vehicles
-        //                   select v;
 
-        //    switch (sortOrder)
-        //    {
-        //        case "RegNumber":
-        //            SortVehicle = SortVehicle.OrderBy(v => v.RegNumber);
-        //            break;
-        //        case "Owner":
-        //            SortVehicle = SortVehicle.OrderBy(v => v.Owner);
-        //            break;
-        //        case "Type":
-        //            SortVehicle = SortVehicle.OrderBy(v => v.Type);
-        //            break;
-        //        case "ParkingPlace":
-        //            SortVehicle = SortVehicle.OrderBy(v => v.ParkingPlace);
-        //            break;
-        //        default:
-        //            SortVehicle = SortVehicle.OrderBy(v => v.RegNumber);
-        //            break;
-        //    }
-        //    return SortVehicle.ToList();
-        //}
    }
 }

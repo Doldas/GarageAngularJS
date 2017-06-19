@@ -25,6 +25,10 @@ namespace GarageAngularJS.Models
         [Required]
         public string Owner { set; get; }
 
+        [Required]
+        public string SSN { set; get; }
+    
+
 
                 #endregion
 
