@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GarageAngularJS.Models;
+using GarageAngularJS.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,18 +11,20 @@ namespace GarageAngularJS.Controllers
 {
     public class ValuesController : ApiController
     {
+        GarageRepository garage = new GarageRepository();
         // GET api/values
-        public IEnumerable<string> Get()
+        [HttpGet]
+        public IEnumerable<Vehicle> Get()
         {
-            return new string[] { "value1", "value2" };
+            return garage.GetAll();
         }
 
         // GET api/values/5
-        public string Get(int id)
+        [HttpGet]
+        public Vehicle Get(string regNr)
         {
-            return "value";
+            return garage.GetVehicle(regNr);
         }
-
         // POST api/values
         public void Post([FromBody]string value)
         {

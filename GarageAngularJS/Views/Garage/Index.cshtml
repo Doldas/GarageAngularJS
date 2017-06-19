@@ -8,7 +8,8 @@
 @*<h>Vehicle List</h>*@
 @*<p>search</p>*@
 {{1+1}}
-<div class="Index_Menu">
+<div class="Index_Menu" ng-controller="MainController" ng-init="getData()">
+        <p ng-repeat="vehicle in data">{{vehicle}}</p>
     <div class="left">
         <form class="glyphicon glyphicon-search" method="get">
             <input type="text" name="Search" placeholder="Free Search" style="width:120px; height:25px;font-family: Helvetica, Arial, sans-serif"  />

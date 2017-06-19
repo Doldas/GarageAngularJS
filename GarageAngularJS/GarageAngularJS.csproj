@@ -123,6 +123,9 @@
     <EmbeddedResource Include="Migrations\201706190941241_Inital.resx">
       <DependentUpon>201706190941241_Inital.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706191111221_Init.resx">
+      <DependentUpon>201706191111221_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -167,6 +170,10 @@
     <Compile Include="Migrations\201706190941241_Inital.cs" />
     <Compile Include="Migrations\201706190941241_Inital.Designer.cs">
       <DependentUpon>201706190941241_Inital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706191111221_Init.cs" />
+    <Compile Include="Migrations\201706191111221_Init.Designer.cs">
+      <DependentUpon>201706191111221_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
@@ -223,7 +230,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
