@@ -2,6 +2,7 @@
 using GarageAngularJS.Repository;
 using GarageAngularJS.Models;
 
+
 namespace GarageMVC.Controllers
 {
     public class GarageController : Controller
@@ -65,7 +66,7 @@ namespace GarageMVC.Controllers
 
         // POST: Garage/Create
         [HttpPost]
-        public ActionResult Create(Models.Vehicle vehicle, string vehicleType)
+        public ActionResult Create(Vehicle vehicle, string vehicleType)
         {
             switch(vehicleType)
             { 
