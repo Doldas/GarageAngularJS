@@ -120,14 +120,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706190941241_Inital.resx">
-      <DependentUpon>201706190941241_Inital.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706191111221_Init.resx">
-      <DependentUpon>201706191111221_Init.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -166,13 +158,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706190941241_Inital.cs" />
-    <Compile Include="Migrations\201706190941241_Inital.Designer.cs">
-      <DependentUpon>201706190941241_Inital.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706191111221_Init.cs" />
-    <Compile Include="Migrations\201706191111221_Init.Designer.cs">
-      <DependentUpon>201706191111221_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201706191705086_initial.cs" />
+    <Compile Include="Migrations\201706191705086_initial.Designer.cs">
+      <DependentUpon>201706191705086_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
@@ -247,7 +235,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706191705086_initial.resx">
+      <DependentUpon>201706191705086_initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

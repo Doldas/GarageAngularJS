@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace GarageAngularJS.Controllers
 {
@@ -13,18 +14,21 @@ namespace GarageAngularJS.Controllers
     {
         GarageRepository garage = new GarageRepository();
         // GET api/values
-        [HttpGet]
+
         public IEnumerable<Vehicle> Get()
         {
+            
             return garage.GetAll();
+
         }
 
         // GET api/values/5
-        [HttpGet]
+
         public Vehicle Get(string regNr)
         {
             return garage.GetVehicle(regNr);
         }
+
         // POST api/values
         public void Post([FromBody]string value)
         {

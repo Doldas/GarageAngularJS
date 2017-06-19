@@ -7,8 +7,9 @@
         function getData() {
             $http.get('/api/values/get')
                 .then(function (response) {
+
                     $scope.data = response.data;
-                })
+                });
         };
     }]);
 }());

@@ -71,6 +71,7 @@ namespace GarageAngularJS.Repository
         {
             return db.Vehicles.Where(v => v.ID == id).FirstOrDefault();
         }
+
         //GET filtered vehicle list
         public List<Vehicle> GetFilteredList(string type)
         {
@@ -89,6 +90,7 @@ namespace GarageAngularJS.Repository
             else
                 return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Truck).ToList();
         }
+
         //GET Sorted Lists
         public List<Vehicle> SortParking(bool descend)
         {
@@ -131,6 +133,7 @@ namespace GarageAngularJS.Repository
             return db.Vehicles.OrderBy(v => v.Type).ToList();
         }
         #endregion
+
         //Edit a vehicle
         public void Edit(Models.Vehicle vehicle)
         {
@@ -139,6 +142,7 @@ namespace GarageAngularJS.Repository
             //Saves the new Data in the Database
             db.SaveChanges();
         }
+
         //Updates the parking prices for each vehicle
         public void UpdateParkPrice()
         {
@@ -153,6 +157,7 @@ namespace GarageAngularJS.Repository
             }
             db.SaveChanges();
         }
+
         // Updates price for a specific vehicle
         public void UpdateVehiclePrice(int id)
         {
@@ -162,6 +167,7 @@ namespace GarageAngularJS.Repository
                 veh.ParkingPrice = veh.ParkingPrice * (System.Convert.ToDecimal(tspan.TotalMinutes));
                 Edit(veh);
         }
+
         // Set default price of vehicle
         private Vehicle SetDefaultPrice(Vehicle vehicle)
         {
@@ -201,6 +207,7 @@ namespace GarageAngularJS.Repository
 
         //    return vehicle;
         //}
+
         //Search vehicle(s)
         public List<Models.Vehicle> Search(string searchTerm)
         {
