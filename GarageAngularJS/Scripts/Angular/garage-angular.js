@@ -15,6 +15,10 @@
         };
 
 
+        $scope.orderByMe = function (vehicle) {
+            $scope.myOrderBy = vehicle;
+        };
+
     }]);
 
 

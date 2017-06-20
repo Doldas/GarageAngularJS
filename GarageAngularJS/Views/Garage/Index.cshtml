@@ -6,8 +6,8 @@
 
 @*<h>Vehicle List</h>*@
 @*<p>search</p>*@
-<div ng-controller="MainController">
-    <div class="Index_Menu" ng-init="getData()">
+<div ng-controller="MainController" ng-init="getData()">
+    <div class="Index_Menu" >
         @*<p ng-repeat="vehicle in data">{{vehicle}}</p>*@
         <div class="left">
             <form class="glyphicon glyphicon-search" method="get">
@@ -29,9 +29,9 @@
                 @*<input name="vehicleType_Long" class=" btn btn-default" type="submit" value="Type" ng-click="filter(filter)" />*@
             </form>
         </div>
-        @*<div class="right">
-            <input ng-click="getData()" name="vehicleType_Long" type="submit" value="Revert" onclick="location.href='@Url.Action("Index", "Garage")'" />
-        </div>*@
+        <div class="right">
+                @*<input ng-click="getData()" name="vehicleType_Long" type="submit" value="Revert" onclick="location.href='@Url.Action("Index", "Garage")'" />*@
+            </div>
 
         @*<div class="right">
                 <input name="vehicleType_Long" type="submit" value="Revert" onclick="location.href='@Url.Action("Index", "Garage")'" />
@@ -39,35 +39,36 @@
         <p></p>
     </div>
 
-    <table class="table"" ng-init="getData()">
+    <table class="table">
         <tr>
             @*<th>
-                    <form method="post">
-                        <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.RegNumber)" id="submit" />&#9660;
-                    </form>
-                </th>
-                <th>
-                    <form method="post">
-                        <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Owner)" id="submit" />&#9660;
-                    </form>
-                </th>
-                <th>
-                    <form method="post">
-                        <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Type)" id="submit" />&#9660;
-                    </form>
-                </th>
-                <th ng-click="orderByMe('regNumber')">RegNumber
-                    <form method="post">
-                        <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.ParkingPlace)" id="submit" />&#9660;
-                    </form>
-                </th>*@
+                    <form method=" post">
+        <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.RegNumber)" id="submit" />&#9660;
+        </form>
+        </th>
+        <th>
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Owner)" id="submit" />&#9660;
+            </form>
+        </th>
+        <th>
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.Type)" id="submit" />&#9660;
+            </form>
+        </th>
+        <th ng-click="orderByMe('regNumber')">
+            RegNumber
+            <form method="post">
+                <input type="submit" name="Sort" value="@Html.DisplayNameFor(model => model.ParkingPlace)" id="submit" />&#9660;
+            </form>
+        </th>*@
 
-            <th ng-click="orderByMe('RegNumber')">RegNumber</th>
-            <th ng-click="orderByMe('Owner')">Owner</th>
-            <th ng-click="orderByMe('Type')">Type</th>
-            <th ng-click="orderByMe('ParkingPlace')">ParkingPlace</th>
+        <th ng-click="orderByMe('RegNumber')">RegNumber</th>
+        <th ng-click="orderByMe('Owner')">Owner</th>
+        <th ng-click="orderByMe('Type')">Type</th>
+        <th ng-click="orderByMe('ParkingPlace')">ParkingPlace</th>
 
-            <th></th>
+        <th></th>
         </tr>
 
         @{
@@ -83,7 +84,7 @@
             url3 = HttpUtility.UrlDecode(url3);
         }
 
-        <tr ng-repeat="vehicle in vehicles | orderBy:orderByMe | filter:searchTerm">
+        <tr ng-repeat="vehicle in vehicles | orderBy:myOrderBy | filter:searchTerm ">
             <td>{{vehicle.RegNumber}}</td>
             <td>{{vehicle.Owner}}</td>
             <td>{{vehicle.Type}}</td>
@@ -94,17 +95,7 @@
                 <a data-ng-href="@url3">CheckOut</a>
             </td>
         </tr>
-        @*@foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "ActionLink" }) |
-                    @Html.ActionLink("CheckOut", "Delete", new { id = item.ID }, new { @class = "ActionLink" })
 
-            <a ng-href="@Url.Content("~/Home/Edit/"){{row.Id}}">Edit</a>
-                </td>
-            </tr>
-            }*@
 
         @*@foreach (var item in Model) {
                 <tr>
