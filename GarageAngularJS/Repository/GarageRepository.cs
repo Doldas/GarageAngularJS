@@ -89,6 +89,10 @@ namespace GarageAngularJS.Repository
             {
                 return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Mc).ToList();
             }
+            else if (type == "Horse")
+            {
+                return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Horse).ToList();
+            }
             else
                 return db.Vehicles.Where(vehicle => vehicle.Type == VehicleType.Truck).ToList();
         }

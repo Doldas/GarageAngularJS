@@ -86,6 +86,7 @@ namespace GarageAngularJS.Models
         Bus,
         Car,
         Mc,
-        Truck
+        Truck,
+        Horse
     }
 }

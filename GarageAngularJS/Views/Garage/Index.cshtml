@@ -11,7 +11,7 @@
         @*<p ng-repeat="vehicle in data">{{vehicle}}</p>*@
         <div class="left">
             <form class="glyphicon glyphicon-search" method="get">
-                <input type="text" name="Search" ng-model="searchTerm" ng-submit="FreeSearch()" placeholder="Free Search" style="width:120px; height:25px;font-family: Helvetica, Arial, sans-serif" />
+                <input type="text" name="Search" ng-model="searchTerm" @*ng-submit="FreeSearch()"*@ placeholder="Free Search" style="width:120px; height:25px;font-family: Helvetica, Arial, sans-serif" />
                 @*<input id="vehicleType_Long" ng-click="FreeSearch(searchTerm)" class="btn btn-primary" type="submit" value="Search" />*@
             </form>
         </div>
@@ -19,12 +19,13 @@
         <div class="center">
 
             <form @*method="post"*@ @*ng-submit="searchType(type)"*@>
-                <select name="SearchType" ng-model="searchTerm" ng-change="filter(filter)">
+                <select name="SearchType" ng-model="searchTerm" @*ng-change="filter(filter)"*@>
                     <option value="" selected>Search type</option>
                     <option value="Car">Car</option>
                     <option value="Bus">Bus</option>
                     <option value="Truck">Truck</option>
                     <option value="Mc">Mc</option>
+                    <option value="Horse">Horse</option>
                 </select>
                 @*<input name="vehicleType_Long" class=" btn btn-default" type="submit" value="Type" ng-click="filter(filter)" />*@
             </form>
@@ -63,28 +64,29 @@
             </form>
         </th>*@
 
-        <th ng-click="orderByMe('RegNumber')">RegNumber</th>
-        <th ng-click="orderByMe('Owner')">Owner</th>
-        <th ng-click="orderByMe('Type')">Type</th>
-        <th ng-click="orderByMe('ParkingPlace')">ParkingPlace</th>
+        <th ng-click="orderByMe('RegNumber')">RegNumber &#9660</th>
+        <th ng-click="orderByMe('Owner')">Owner &#9660</th>
+        <th ng-click="orderByMe('Type')">Type &#9660</th>
+        <th ng-click="orderByMe('ParkingPlace')">ParkingPlace &#9660</th>
 
         <th></th>
         </tr>
 
         @{
-            var url1 = Url.Action("Edit", "Edit", new { ID = "{{id=item.ID}}" });
+            var url1 = Url.Action("Edit", new { ID = "{{id=vehicle.ID}}" });
             url1 = HttpUtility.UrlDecode(url1);
         }
         @{
-            var url2 = Url.Action("Details", "Details", new { ID = "{{id=item.ID}}" });
+            var url2 = Url.Action("Details", new { ID = "{{id=vehicle.ID}}" });
             url2 = HttpUtility.UrlDecode(url2);
         }
         @{
-            var url3 = Url.Action("Delete", "Delete", new { ID = "{{id=item.ID}}" });
+            var url3 = Url.Action("Delete", new { ID = "{{id=vehicle.ID}}" });
             url3 = HttpUtility.UrlDecode(url3);
         }
 
         <tr ng-repeat="vehicle in vehicles | orderBy:myOrderBy | filter:searchTerm ">
+            @*<td>{{vehicle.ID}}</td>*@
             <td>{{vehicle.RegNumber}}</td>
             <td>{{vehicle.Owner}}</td>
             <td>{{vehicle.Type}}</td>
