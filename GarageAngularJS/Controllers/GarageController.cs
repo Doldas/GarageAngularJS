@@ -82,6 +82,9 @@ namespace GarageMVC.Controllers
                 case "Truck":
                     vehicle.Type = VehicleType.Truck;
                     break;
+                case "Horse":
+                    vehicle.Type = VehicleType.Horse;
+                    break;
                 default :
                     return RedirectToAction("Index");
             }
@@ -94,17 +97,16 @@ namespace GarageMVC.Controllers
         // GET: Garage/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(garage.GetVehicle(id));
         }
 
         // POST: Garage/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Vehicle vehicle)
         {
             try
             {
-                // TODO: Add update logic here
-
+                garage.Edit(vehicle);
                 return RedirectToAction("Index");
             }
             catch
