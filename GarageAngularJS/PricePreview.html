@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>PricePreview</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="/Content/Custom_css/StyleSheet.css" />
+
+
+    <script src="ppScript.js"></script>
+
+
+</head>
+
+<body ng-app="pageViewer" ng-controller="ppController">
+    <p>{{2+2}}</p>
+<table>
+    <tr>
+        <th>RegNumber</th>
+        <th>ParkingDate</th>
+        <th>ParkingPrice</th>
+
+    </tr>
+    <tr ng-repeat="vehicle in vehicles ">
+        <td>{{vehicle.RegNumber}}</td>
+        <td>{{vehicle.ParkingDate}}</td>
+        <td>{{vehicle.ParkingPrice}}</td>
+    </tr>
+    </table>
+</body>
+</html>

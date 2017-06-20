@@ -178,10 +178,11 @@ namespace GarageAngularJS.Repository
         private Vehicle SetDefaultPrice(Vehicle vehicle)
         {
             //reset the parkingPrice to it's default values
-            if(vehicle.Type == VehicleType.Car) { vehicle.ParkingPrice = 1; }
-            else if(vehicle.Type == VehicleType.Mc) { vehicle.ParkingPrice = 0.45M; }
-            else if(vehicle.Type == VehicleType.Bus) { vehicle.ParkingPrice = 2; }
-            else { vehicle.ParkingPrice = 3.50M; }
+            if(vehicle.Type == VehicleType.Car) { vehicle.ParkingPrice = 10; }
+            else if(vehicle.Type == VehicleType.Mc) { vehicle.ParkingPrice = 45; }
+            else if(vehicle.Type == VehicleType.Bus) { vehicle.ParkingPrice = 20; }
+            else if (vehicle.Type == VehicleType.Horse) { vehicle.ParkingPrice = 100; }
+            else { vehicle.ParkingPrice = 35; }
 
             return vehicle;
         }
